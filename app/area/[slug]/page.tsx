@@ -19,9 +19,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const area = getArea(params.slug);
   if (!area) return {};
   return {
-    title: { absolute: `${area.name} 출장마사지 예약 안내｜${area.dongs.join("·")} 통합` },
-    // 지역별 고유 소개문을 메타 설명으로 사용(템플릿 반복 회피)
-    description: area.intro,
+    // 지역마다 구조·강조점이 다른 전용 타이틀/설명 사용(템플릿 반복 회피)
+    title: { absolute: area.seoTitle },
+    description: area.seoDescription,
     alternates: { canonical: `/area/${area.slug}/` },
     keywords: [`${area.name} 출장마사지`, ...area.keywords],
   };
