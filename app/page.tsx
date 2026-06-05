@@ -13,9 +13,9 @@ import { editorialMeta } from "@/lib/authors";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: { absolute: "강동 출장마사지 예약 안내｜지역·요금·안전 기준 확인" },
+  title: { absolute: "강동 출장마사지 예약 | 한국인 관리사 빠른 방문·정찰제 요금" },
   description:
-    "강동구 전 지역 출장마사지 예약 안내. 강일동·고덕동·천호동 등 방문 가능 지역, 요금, 준비사항, 안전 이용 기준을 확인하세요.",
+    "강동구 전 지역 출장마사지. 한국인 관리사가 빠르게 방문하고, 정찰제 요금으로 예고 없는 추가요금이 없습니다. 야간 예약 가능 — 지역·요금·준비사항·안전 기준을 확인하세요.",
   alternates: { canonical: "/" },
   keywords: ["강동 출장마사지", "강동구 출장마사지", "강동 마사지 예약", "강동 방문 마사지"],
 };
@@ -88,6 +88,12 @@ export default function HomePage() {
             </Link>
           </div>
           <AreaSelect />
+          <ul className="hero-usp">
+            <li>한국인 관리사 방문</li>
+            <li>예약 후 빠른 방문</li>
+            <li>정찰제 요금 · 추가요금 없음</li>
+            <li>야간 예약 가능</li>
+          </ul>
           <div className="hero-meta">
             <span className="badge-live">오늘 예약 가능 여부 실시간 상담</span>
             <span>운영시간 {site.hours}</span>
