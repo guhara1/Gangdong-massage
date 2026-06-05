@@ -21,14 +21,26 @@ export const metadata: Metadata = {
     title: `${site.name} 예약 안내`,
     description: site.description,
     url: site.url,
+    // 선호 썸네일 명시(구글 권장: og:image + 구조화 데이터 이미지 병행)
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} 예약 안내`,
+    description: site.description,
+    images: [site.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2f6f6a",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

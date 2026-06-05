@@ -12,6 +12,8 @@ export const site = {
   kakaoUrl: "#",
   reserveUrl: "#reserve",
   hours: "10:00 ~ 익일 05:00 (연중무휴)",
+  // 선호 썸네일(OG/Discover). 1200x630 권장. public/og-image.png 로 교체하세요.
+  ogImage: "/og-image.png",
   // 사업자 정보(예시) — 실제 정보로 교체 필요.
   business: {
     legalName: "강동 케어 (사업자명 기재)",
@@ -26,6 +28,43 @@ export const site = {
     instagram: "",
   },
 } as const;
+
+// 코스별 기본 요금(카드용). 실제 운영 금액으로 검토 후 사용하세요.
+export interface PriceCourse {
+  name: string; // 예: 60분 코스
+  time: string; // 예: 60분
+  price: string; // 숫자만 (예: 90,000) — 단위는 화면에서 "원" 표기
+  desc: string;
+  recommended?: boolean;
+}
+
+export const courses: PriceCourse[] = [
+  { name: "60분 코스", time: "60분", price: "90,000", desc: "기본 컨디션·릴랙스 케어" },
+  { name: "90분 코스", time: "90분", price: "150,000", desc: "아로마 포함 추천 구성", recommended: true },
+  { name: "120분 코스", time: "120분", price: "180,000", desc: "전신 집중 프리미엄 케어" },
+];
+
+// 추가 요금 안내(코스 외)
+export const priceNotes: string[] = [
+  "야간 추가요금: 시간대별 별도 안내",
+  "출장비: 방문 지역·거리에 따라 상담 시 안내",
+];
+
+// 표 형태가 필요한 페이지(지역·서비스 상세)용 요금표.
+export interface PriceRow {
+  name: string;
+  time: string;
+  price: string;
+  note?: string;
+}
+
+export const pricing: PriceRow[] = [
+  { name: "60분 코스", time: "60분", price: "90,000원", note: "기본 컨디션·릴랙스 케어" },
+  { name: "90분 코스", time: "90분", price: "150,000원", note: "아로마 포함 추천 구성" },
+  { name: "120분 코스", time: "120분", price: "180,000원", note: "전신 집중 프리미엄 케어" },
+  { name: "야간 추가", time: "시간대별", price: "별도 안내", note: "예약 시 고지" },
+  { name: "출장비", time: "지역별", price: "상담 시 안내", note: "거리에 따라 적용" },
+];
 
 // 모든 페이지 하단/예약·서비스 상세에 노출하는 신뢰·면책 문구.
 export const trustNotice =
