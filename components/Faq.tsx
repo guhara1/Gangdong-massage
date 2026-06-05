@@ -4,7 +4,7 @@ import type { FaqItem } from "@/lib/faq";
 export default function Faq({ items, heading = "자주 묻는 질문" }: { items: FaqItem[]; heading?: string }) {
   return (
     <section className="faq">
-      <h2>{heading}</h2>
+      {heading ? <h2>{heading}</h2> : null}
       {items.map((item, i) => (
         <details key={i}>
           <summary>{item.q}</summary>
