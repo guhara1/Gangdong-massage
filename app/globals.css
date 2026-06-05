@@ -1,14 +1,19 @@
 :root {
-  /* 다크 테마: 검정 배경 · 흰색 본문 · 형광 그린 포인트 */
-  --bg: #000000;
-  --surface: #0e100f;
-  --surface-2: #141816;
-  --fg: #f3f6f4; /* 일반 본문: 흰색 */
-  --muted: #9aa6a1;
-  --line: #20302a;
-  --green: #3dff9a; /* 포인트(형광 그린) */
-  --green-dim: #28c878;
-  --green-soft: rgba(61, 255, 154, 0.12);
+  /* 다크 + 골드 에디토리얼: 따뜻한 블랙 배경 · 아이보리 본문 · 골드 포인트 */
+  --bg: #0a0908;
+  --surface: #131110;
+  --surface-2: #181513;
+  --fg: #efe9dd; /* 본문: 따뜻한 아이보리 */
+  --muted: #9c9486;
+  --line: #2a2520;
+  --green: #cda86a; /* 포인트(골드) — 변수명은 호환 위해 유지 */
+  --green-dim: #b0894c;
+  --green-soft: rgba(205, 168, 106, 0.12);
+  --gold: #cda86a;
+  --gold-dim: #b0894c;
+  --gold-line: rgba(205, 168, 106, 0.42);
+  --gold-soft: rgba(205, 168, 106, 0.1);
+  --ink: #f3eee3;
   --max: 1120px;
   --radius: 12px;
 }
@@ -80,7 +85,7 @@ h3 {
   font-size: 1.15rem;
   color: var(--green); /* 로고는 포인트 그린 */
   white-space: nowrap;
-  text-shadow: 0 0 12px rgba(61, 255, 154, 0.35);
+  text-shadow: 0 0 1px rgba(205, 168, 106, 0.25);
 }
 .main-nav {
   flex: 1;
@@ -160,7 +165,7 @@ h3 {
 .btn-primary {
   background: var(--green);
   color: #04130b; /* 형광 그린 위 어두운 글씨 */
-  box-shadow: 0 0 18px rgba(61, 255, 154, 0.25);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
 }
 .btn-primary:hover {
   background: #5cffae;
@@ -231,7 +236,7 @@ main {
 
 /* ---------- Hero ---------- */
 .hero {
-  background: radial-gradient(1200px 400px at 20% -10%, rgba(61, 255, 154, 0.12), transparent 60%),
+  background: radial-gradient(1200px 400px at 20% -10%, rgba(205, 168, 106, 0.10), transparent 62%),
     linear-gradient(180deg, #050807 0%, #000000 70%);
   padding: 56px 0 40px;
   border-bottom: 1px solid var(--line);
@@ -243,7 +248,7 @@ main {
 }
 .hero h1 .accent {
   color: var(--green);
-  text-shadow: 0 0 16px rgba(61, 255, 154, 0.4);
+  text-shadow: none;
 }
 .hero p {
   font-size: 1.1rem;
@@ -393,7 +398,7 @@ main {
   font-size: 0.8rem;
   padding: 5px 16px;
   border-radius: 999px;
-  box-shadow: 0 0 16px rgba(61, 255, 154, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 .price-card h3 {
   margin: 6px 0 4px;
@@ -409,7 +414,7 @@ main {
 }
 .is-recommended .price-amount {
   color: var(--green);
-  text-shadow: 0 0 18px rgba(61, 255, 154, 0.35);
+  text-shadow: none;
 }
 .price-amount .won {
   font-size: 0.95rem;
@@ -671,5 +676,204 @@ main {
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   메인 페이지 에디토리얼(잡지) 레이아웃 — 블랙 & 골드
+   ============================================================ */
+.home {
+  --ink: #f3eee3;
+}
+
+/* 넉넉한 섹션 리듬 */
+.home .ed {
+  padding: 76px 0;
+}
+.home .ed-tight {
+  padding: 56px 0;
+}
+.home .wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.home .measure {
+  max-width: 720px;
+}
+
+/* 골드 아이브로 라벨 */
+.home .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 22px;
+}
+.home .eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+/* 디스플레이 제목 */
+.home .display {
+  font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+}
+.home .display .accent {
+  color: var(--gold);
+}
+.home h2.head {
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+/* 리드 + 드롭캡 */
+.home .lead {
+  font-size: 1.24rem;
+  line-height: 1.95;
+  color: #ddd6c8;
+  font-weight: 400;
+}
+.home .lead.dropcap::first-letter {
+  float: left;
+  font-family: Georgia, "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+  font-size: 4.6rem;
+  line-height: 0.82;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 8px 16px 0 0;
+}
+
+/* 가는 골드 구분선 */
+.home .rule-gold {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, var(--gold-line) 16%, var(--gold-line) 84%, transparent);
+}
+
+/* 인용 하이라이트 */
+.home .pullquote {
+  margin: 0;
+  padding: 4px 0 4px 30px;
+  border-left: 2px solid var(--gold);
+  font-family: Georgia, "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+  font-style: italic;
+  font-size: clamp(1.35rem, 2.7vw, 1.95rem);
+  line-height: 1.62;
+  color: var(--ink);
+}
+.home .pullquote cite {
+  display: block;
+  margin-top: 18px;
+  font-style: normal;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* 에디토리얼 본문 */
+.home .ed-prose p {
+  font-size: 1.07rem;
+  line-height: 1.92;
+  color: #cfc8ba;
+  margin: 0 0 1.35em;
+}
+.home .ed-prose p:last-child {
+  margin-bottom: 0;
+}
+.home .ed-prose h3 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2em 0 0.5em;
+  letter-spacing: -0.01em;
+}
+.home .ed-kicker {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* 히어로 커버 */
+.home .cover {
+  padding: 104px 0 84px;
+  background: radial-gradient(900px 420px at 16% -12%, rgba(205, 168, 106, 0.12), transparent 60%),
+    linear-gradient(180deg, #100d0a 0%, var(--bg) 72%);
+  border-bottom: 1px solid var(--line);
+}
+.home .cover .lead {
+  margin-top: 22px;
+  max-width: 620px;
+}
+.home .cover .hero-cta {
+  margin-top: 30px;
+}
+
+/* 골드 톤 컴포넌트 보정(메인 한정) */
+.home .btn-primary {
+  background: var(--gold);
+  color: #1c1407;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+.home .btn-primary:hover {
+  background: #dcbd84;
+}
+.home .badge-live::before {
+  box-shadow: 0 0 8px rgba(205, 168, 106, 0.7);
+}
+.home .step-no {
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+.home .card:hover {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+.home .area-chips a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* 카드 그리드 여백 확대 */
+.home .grid {
+  gap: 18px;
+}
+
+/* 정보 표(작성 기준) 톤 */
+.home .info-table th {
+  color: var(--gold);
+}
+.home .price-table thead th,
+.home .price-time {
+  color: var(--gold);
+}
+
+@media (max-width: 720px) {
+  .home .ed {
+    padding: 52px 0;
+  }
+  .home .cover {
+    padding: 72px 0 56px;
   }
 }
