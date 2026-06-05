@@ -67,13 +67,24 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
           <p key={i}>{p}</p>
         ))}
 
+        <ul className="fact-list">
+          {area.highlights.map((h, i) => (
+            <li key={i}>{h}</li>
+          ))}
+        </ul>
+
         {/* 방문 가능 범위 */}
         <h2>{area.name} 방문 가능 범위</h2>
         <p>
           {area.name} 페이지는 <strong>{area.dongs.join(", ")}</strong>를 통합해 안내합니다. 예약 시 정확한
           주소와 공동현관 출입 방법, 주차 가능 여부를 미리 확인하면 방문 지연을 줄일 수 있습니다.
         </p>
+        <p>{area.body.landmarks}</p>
         <p>{area.body.target}</p>
+
+        {/* 지역 수요·이용 특징 */}
+        <h2>{area.name} 이용 수요와 특징</h2>
+        <p>{area.body.demand}</p>
 
         {/* 지역 고유 현장 팁 (차별화 콘텐츠) */}
         <h2>{area.name} 예약 시 참고할 현장 팁</h2>
