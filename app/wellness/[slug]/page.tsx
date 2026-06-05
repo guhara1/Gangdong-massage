@@ -19,7 +19,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!p) return {};
   return {
     title: `${p.title}｜건강·웰니스`,
-    description: `${p.summary}. ${p.intro[0]}`,
+    description: `${p.title}｜${p.summary}. 강동 건강·웰니스 칼럼.`,
     alternates: { canonical: `/wellness/${p.slug}/` },
     keywords: p.keywords,
   };

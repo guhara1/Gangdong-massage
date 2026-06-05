@@ -9,8 +9,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "이용가이드｜예약·준비·요금·안전 안내",
-  description:
-    "강동 방문 케어 예약 방법, 이용 전 준비사항, 요금, 첫 이용자 안내, 안전 정책, 취소·환불 규정을 한곳에서 안내합니다.",
+  description: "강동 출장마사지 이용가이드. 예약·준비·요금·안전·취소까지 한곳에서 안내합니다.",
   alternates: { canonical: "/guide/" },
 };
 

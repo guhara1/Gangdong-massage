@@ -12,7 +12,7 @@ import { localBusinessSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "강동구 출장마사지 안내｜전 지역 방문 케어",
-  description: "강동구 전 지역 방문 케어 안내. 강일동·고덕동·천호동 등 9개 지역의 예약 가능 범위, 요금, 준비사항, 안전 정책을 확인하세요.",
+  description: "강동구 전 지역 출장마사지 안내. 9개 지역 방문 범위·요금·준비·안전 기준을 확인하세요.",
   alternates: { canonical: "/area/gangdong/" },
 };
 

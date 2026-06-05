@@ -9,8 +9,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "강동구 지역 안내｜방문 가능 지역 9곳",
-  description:
-    "강일동·고덕동·길동·둔촌동·명일동·상일동·성내동·암사동·천호동 등 강동구 방문 케어 가능 지역과 지역별 특징을 안내합니다.",
+  description: "강동구 9개 지역 출장마사지 방문 안내. 지역별 가능 범위·요금·예약 팁을 확인하세요.",
   alternates: { canonical: "/area/" },
 };
 

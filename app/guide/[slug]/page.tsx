@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!g) return {};
   return {
     title: `${g.name}｜강동 출장마사지 이용가이드`,
-    description: `${g.summary}. ${g.intro[0]}`,
+    description: `${g.name}｜${g.summary}. 강동 출장마사지 이용가이드.`,
     alternates: { canonical: `/guide/${g.slug}/` },
     keywords: g.keywords,
   };
