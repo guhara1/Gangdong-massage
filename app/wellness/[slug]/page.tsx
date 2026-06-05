@@ -57,6 +57,12 @@ export default function WellnessPostPage({ params }: { params: { slug: string } 
           <p key={i}>{para}</p>
         ))}
 
+        <ul className="fact-list">
+          {p.highlights.map((h, i) => (
+            <li key={i}>{h}</li>
+          ))}
+        </ul>
+
         {p.sections.map((sec) => (
           <div key={sec.heading}>
             <h2>{sec.heading}</h2>

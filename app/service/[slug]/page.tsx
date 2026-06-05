@@ -51,6 +51,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <p key={i}>{p}</p>
         ))}
 
+        <ul className="fact-list">
+          {s.highlights.map((h, i) => (
+            <li key={i}>{h}</li>
+          ))}
+        </ul>
+
         <h2>이용 대상</h2>
         <p>{s.body.forWhom}</p>
 
