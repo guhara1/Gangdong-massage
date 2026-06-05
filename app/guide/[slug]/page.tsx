@@ -47,6 +47,12 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           <p key={i}>{p}</p>
         ))}
 
+        <ul className="fact-list">
+          {g.highlights.map((h, i) => (
+            <li key={i}>{h}</li>
+          ))}
+        </ul>
+
         {g.sections.map((sec) => (
           <div key={sec.heading}>
             <h2>{sec.heading}</h2>
