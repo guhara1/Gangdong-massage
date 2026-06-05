@@ -2,6 +2,9 @@
 import { site } from "./site";
 import type { FaqItem } from "./faq";
 
+// 선호 썸네일 절대 URL
+const ogImageUrl = `${site.url.replace(/\/$/, "")}${site.ogImage}`;
+
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
@@ -9,6 +12,8 @@ export function organizationSchema() {
     name: site.name,
     url: site.url,
     description: site.description,
+    logo: ogImageUrl,
+    image: ogImageUrl,
     telephone: site.phone,
     address: {
       "@type": "PostalAddress",
@@ -36,6 +41,7 @@ export function localBusinessSchema(opts?: { areaServed?: string }) {
     name: site.name,
     url: site.url,
     description: site.description,
+    image: ogImageUrl,
     telephone: site.phone,
     openingHours: "Mo-Su 10:00-29:00",
     address: {

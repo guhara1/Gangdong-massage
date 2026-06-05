@@ -12,6 +12,8 @@ export const site = {
   kakaoUrl: "#",
   reserveUrl: "#reserve",
   hours: "10:00 ~ 익일 05:00 (연중무휴)",
+  // 선호 썸네일(OG/Discover). 1200x630 권장. public/og-image.png 로 교체하세요.
+  ogImage: "/og-image.png",
   // 사업자 정보(예시) — 실제 정보로 교체 필요.
   business: {
     legalName: "강동 케어 (사업자명 기재)",
