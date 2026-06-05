@@ -134,6 +134,13 @@ h3 {
   visibility: visible;
   transform: translateY(0);
 }
+/* 클릭 직후에는 hover/focus여도 닫힌 상태 유지(마우스가 벗어나면 해제) */
+.nav-item.suppressed:hover .dropdown,
+.nav-item.suppressed:focus-within .dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+}
 .dropdown ul {
   list-style: none;
   margin: 0;
@@ -1067,6 +1074,30 @@ main {
   position: absolute;
   left: 0;
   top: 0;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+/* 히어로 USP 스트립 */
+.hero-usp {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 0;
+  margin: 18px 0 0;
+}
+.hero-usp li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.hero-usp li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
   color: var(--gold);
   font-weight: 800;
 }
