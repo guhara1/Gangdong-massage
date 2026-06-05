@@ -29,6 +29,22 @@ export const site = {
   },
 } as const;
 
+// 요금표(예시). 실제 운영 금액으로 교체하세요. 0원 노출이 아니라 기준만 비워둔 형태.
+export interface PriceRow {
+  name: string;
+  time: string;
+  price: string;
+  note?: string;
+}
+
+export const pricing: PriceRow[] = [
+  { name: "기본 케어", time: "60분", price: "₩00,000", note: "가벼운 피로 관리" },
+  { name: "집중 케어", time: "90분", price: "₩00,000", note: "전신 이완 중심" },
+  { name: "프리미엄 케어", time: "120분", price: "₩00,000", note: "충분한 휴식" },
+  { name: "야간 추가", time: "시간대별", price: "별도 안내", note: "예약 시 고지" },
+  { name: "출장비", time: "지역별", price: "상담 시 안내", note: "거리에 따라 적용" },
+];
+
 // 모든 페이지 하단/예약·서비스 상세에 노출하는 신뢰·면책 문구.
 export const trustNotice =
   "본 서비스는 피로 완화와 휴식을 위한 웰니스 목적의 방문 케어입니다. 질병의 진단·치료·처방을 대신하지 않으며, 통증·질환·임신·수술 후 회복·고위험 건강 상태가 있는 경우 이용 전 의료 전문가와 상담해 주세요. 불법·선정적 서비스 요청은 접수되지 않으며, 현장에서 즉시 이용이 중단될 수 있습니다.";

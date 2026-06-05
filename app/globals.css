@@ -257,6 +257,139 @@ main {
   margin-top: 22px;
 }
 
+/* ---------- Hero extras ---------- */
+.area-select {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 18px;
+}
+.area-select select {
+  appearance: none;
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+.area-select select:focus {
+  outline: none;
+  border-color: var(--green);
+}
+.hero-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-weight: 600;
+}
+.badge-live::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+.hero-warn {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Step list ---------- */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.step-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.step-no {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+.step-list strong {
+  color: var(--fg);
+}
+.step-list p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Tables ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+.price-table,
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.price-table th,
+.price-table td,
+.info-table th,
+.info-table td {
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--fg);
+}
+.price-table thead th {
+  background: var(--surface);
+  color: var(--green);
+}
+.price-table tbody tr:nth-child(odd) {
+  background: var(--surface);
+}
+.info-table th {
+  background: var(--surface);
+  color: var(--green);
+  width: 160px;
+  white-space: nowrap;
+}
+
 /* ---------- Cards / grids ---------- */
 .grid {
   display: grid;
