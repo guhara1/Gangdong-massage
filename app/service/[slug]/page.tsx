@@ -7,8 +7,16 @@ import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
 import { services, getService } from "@/lib/services";
-import { trustNotice } from "@/lib/site";
+import { trustNotice, pricing } from "@/lib/site";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
+
+const stepList = [
+  "지역 선택",
+  "희망 시간 확인",
+  "서비스 유형 상담",
+  "방문 전 준비사항 안내",
+  "관리사 방문 및 케어 진행",
+];
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -65,9 +73,47 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
         <h2>요금·시간 안내</h2>
         <p>{s.body.pricing}</p>
+        <div className="table-wrap">
+          <table className="price-table">
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>시간</th>
+                <th>요금</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pricing.map((row) => (
+                <tr key={row.name}>
+                  <td>{row.name}</td>
+                  <td>{row.time}</td>
+                  <td>{row.price}</td>
+                  <td>{row.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+          ※ 금액은 예시이며 실제 요금은 예약 시간·방문 위치에 따라 확정됩니다. 코스별 기준은{" "}
+          <Link href="/guide/pricing/">요금 안내</Link>를 참고하세요.
+        </p>
+
+        <h2>예약 절차</h2>
+        <ol className="step-list">
+          {stepList.map((t, i) => (
+            <li key={i}>
+              <span className="step-no">{i + 1}</span>
+              <div>
+                <strong>{t}</strong>
+              </div>
+            </li>
+          ))}
+        </ol>
         <p>
-          코스별 요금 기준은 <Link href="/guide/pricing/">요금 안내</Link>, 예약 절차는{" "}
-          <Link href="/guide/reservation/">예약 방법</Link>에서 확인하세요.
+          예약 방법은 <Link href="/guide/reservation/">예약 방법</Link>, 준비물은{" "}
+          <Link href="/guide/preparation/">이용 전 준비사항</Link>에서 확인하세요.
         </p>
 
         <h2>주의·금기 사항</h2>
