@@ -10,8 +10,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "자주 묻는 질문｜예약·요금·준비·취소·안전 안내",
-  description:
-    "예약 방법, 당일 예약, 준비물, 요금, 방문 지역, 야간 예약, 취소·환불, 안전 기준 등 강동 출장마사지 자주 묻는 질문을 정리했습니다.",
+  description: "강동 출장마사지 자주 묻는 질문. 예약·요금·준비·취소·안전 기준을 정리했습니다.",
   alternates: { canonical: "/faq/" },
 };
 

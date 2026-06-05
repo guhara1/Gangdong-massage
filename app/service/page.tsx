@@ -9,8 +9,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "강동 출장마사지 서비스 안내｜케어 유형·선택 기준",
-  description:
-    "아로마·스포츠·림프·산전산후·커플가족·야간 등 강동 방문 케어 서비스 유형과 선택 기준, 공통 진행 방식을 안내합니다.",
+  description: "강동 출장마사지 서비스 유형과 선택 기준 안내. 아로마·스포츠·림프·커플·야간 케어.",
   alternates: { canonical: "/service/" },
 };
 

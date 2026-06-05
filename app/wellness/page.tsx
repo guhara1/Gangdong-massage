@@ -9,8 +9,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "건강·웰니스 칼럼｜피로·자세·생활 관리 정보",
-  description:
-    "피로 관리, 어깨·목·허리 관리, 마사지 전후 주의사항, 직장인 케어 등 일상 컨디션 관리에 도움이 되는 일반 웰니스 정보를 제공합니다.",
+  description: "피로·어깨·목·허리 관리, 마사지 전후 주의 등 강동 건강·웰니스 일반 정보를 제공합니다.",
   alternates: { canonical: "/wellness/", types: { "application/rss+xml": "/rss.xml" } },
 };
 

@@ -18,7 +18,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!s) return {};
   return {
     title: `강동 ${s.name} 안내｜이용 전 확인사항`,
-    description: `${s.name} 진행 방식, 이용 대상, 예약 전 준비사항과 이용 제한 상황을 안내합니다. ${s.summary}.`,
+    description: `강동 ${s.name}｜${s.summary}. 한국인 관리사 방문·정찰제 요금.`,
     alternates: { canonical: `/service/${s.slug}/` },
     keywords: s.keywords,
   };
