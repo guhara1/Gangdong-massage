@@ -8,7 +8,7 @@ import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
 import { areas, getArea, areaAdjacency } from "@/lib/areas";
 import { services } from "@/lib/services";
-import { site } from "@/lib/site";
+import { site, pricing } from "@/lib/site";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -105,16 +105,43 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
           ))}
         </div>
 
-        {/* 이용 안내 — 공통 정보는 전용 페이지로 링크(반복 회피) */}
-        <h2>요금·예약·준비·안전 안내</h2>
+        {/* 요금표 */}
+        <h2>{area.name} 출장마사지 요금 안내</h2>
         <p>
-          코스별 기본 요금은 60분 90,000원부터이며, {area.name} 방문 출장비와 야간 추가요금은 상담 시 안내합니다.
-          반복되는 공통 안내는 아래 전용 페이지에서 한 번에 확인하실 수 있습니다.
+          코스(시간)별 기본 요금입니다. {area.name} 방문 출장비와 야간 추가요금은 상담 시 안내하며, 모든 비용은
+          예약 확정 전에 투명하게 고지합니다. 예고 없는 추가요금은 발생하지 않습니다.
         </p>
+        <div className="table-wrap">
+          <table className="price-table">
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>시간</th>
+                <th>요금</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pricing.map((row) => (
+                <tr key={row.name}>
+                  <td>{row.name}</td>
+                  <td>{row.time}</td>
+                  <td>{row.price}</td>
+                  <td>{row.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+          ※ 금액은 예시이며 실제 요금은 예약 시간·서비스 유형·방문 위치에 따라 확정됩니다. 코스별 상세 기준은{" "}
+          <Link href="/guide/pricing/">요금 안내</Link>를 참고하세요.
+        </p>
+
+        {/* 이용 안내 — 공통 정보는 전용 페이지로 링크 */}
+        <h2>예약·준비·안전 안내</h2>
+        <p>예약 절차와 준비물, 이용 기준 등 공통 안내는 아래 전용 페이지에서 한 번에 확인하실 수 있습니다.</p>
         <ul>
-          <li>
-            <Link href="/guide/pricing/">코스별 요금 안내</Link> — 60·90·120분 요금과 추가요금 기준
-          </li>
           <li>
             <Link href="/guide/reservation/">예약 방법</Link> — 문의부터 방문까지 절차
           </li>
