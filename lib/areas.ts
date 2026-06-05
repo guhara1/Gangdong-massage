@@ -395,3 +395,17 @@ export const areas: Area[] = [
 export function getArea(slug: string): Area | undefined {
   return areas.find((a) => a.slug === slug);
 }
+
+// 지역페이지 내부링크: 무작위 다대다 대신 인접 생활권 중심 연결.
+// (각 지역 하단에 인접 2~3개 + "강동구 전체" 허브로 연결)
+export const areaAdjacency: Record<string, string[]> = {
+  gangil: ["godeok", "sangil"],
+  godeok: ["sangil", "myeongil", "gangil"],
+  gil: ["cheonho", "seongnae", "dunchon"],
+  dunchon: ["seongnae", "gil"],
+  myeongil: ["godeok", "amsa", "dunchon"],
+  sangil: ["godeok", "gangil", "myeongil"],
+  seongnae: ["cheonho", "dunchon"],
+  amsa: ["cheonho", "godeok", "myeongil"],
+  cheonho: ["seongnae", "amsa"],
+};
