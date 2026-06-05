@@ -154,6 +154,43 @@ h3 {
   white-space: nowrap;
 }
 
+/* 햄버거 토글 / 캐럿 — 데스크톱에서는 숨김 */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--fg);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle span.x:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle span.x:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle span.x:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.nav-row {
+  display: contents;
+}
+.nav-caret {
+  display: none;
+}
+
 .btn {
   display: inline-block;
   padding: 11px 18px;
@@ -642,14 +679,65 @@ main {
   .header-inner {
     flex-wrap: wrap;
   }
-  .main-nav {
+  /* 햄버거 노출, CTA는 우측 상단 유지 */
+  .nav-toggle {
+    display: flex;
+    order: 2;
+    margin-left: auto;
+  }
+  .header-cta {
     order: 3;
+  }
+  /* 메뉴 패널: 기본 접힘, 햄버거로 토글 */
+  .main-nav {
+    order: 4;
     flex-basis: 100%;
+    width: 100%;
+    display: none;
+    margin-top: 10px;
+    border-top: 1px solid var(--line);
+    max-height: 72vh;
+    overflow-y: auto;
+  }
+  .main-nav.open {
+    display: block;
   }
   .nav-list {
+    flex-direction: column;
     gap: 0;
   }
-  /* 모바일: 드롭다운을 항상 펼친 정적 목록으로 노출(접근성/크롤링) */
+  .nav-item {
+    width: 100%;
+    position: static;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-top {
+    flex: 1;
+    padding: 14px 6px;
+  }
+  .nav-caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .nav-item.expanded .nav-caret {
+    transform: rotate(180deg);
+    color: var(--gold);
+  }
+  /* 하위 메뉴: 기본 접힘, 그룹 펼침 시 노출 */
   .dropdown {
     position: static;
     opacity: 1;
@@ -657,11 +745,13 @@ main {
     transform: none;
     box-shadow: none;
     border: none;
-    padding: 0 0 8px 12px;
+    border-radius: 0;
     min-width: 0;
+    padding: 0 0 8px 14px;
+    display: none;
   }
-  .nav-item {
-    width: 100%;
+  .nav-item.expanded .dropdown {
+    display: block;
   }
 }
 @media (max-width: 820px) {
