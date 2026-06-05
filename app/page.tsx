@@ -4,7 +4,8 @@ import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
 import AreaSelect from "@/components/AreaSelect";
-import { site, pricing, trustNotice } from "@/lib/site";
+import PricingCards from "@/components/PricingCards";
+import { site } from "@/lib/site";
 import { areas } from "@/lib/areas";
 import { services } from "@/lib/services";
 import { homeFaq } from "@/lib/faq";
@@ -147,35 +148,13 @@ export default function HomePage() {
       {/* 6. 요금 안내 */}
       <section className="section" style={{ background: "var(--surface-2)" }}>
         <div className="container">
-          <h2>강동 출장마사지 요금 안내</h2>
+          <h2>코스별 기본 요금</h2>
           <p className="page-lead">
-            모든 비용은 예약 확정 전에 투명하게 안내합니다. 예고 없는 추가요금은 발생하지 않습니다.
+            60·90·120분 코스별 기본 요금입니다. 숨겨진 추가 비용 없이 투명하게 안내합니다.
           </p>
-          <div className="table-wrap">
-            <table className="price-table">
-              <thead>
-                <tr>
-                  <th>구분</th>
-                  <th>시간</th>
-                  <th>요금</th>
-                  <th>비고</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricing.map((row) => (
-                  <tr key={row.name}>
-                    <td>{row.name}</td>
-                    <td>{row.time}</td>
-                    <td>{row.price}</td>
-                    <td>{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <PricingCards />
           <p style={{ marginTop: 12, color: "var(--muted)", fontSize: "0.9rem" }}>
-            ※ 위 금액은 예시이며 실제 금액은 상담 시 확정됩니다. 취소·환불 기준은{" "}
-            <Link href="/guide/refund/">취소·환불 규정</Link>에서 확인하세요.
+            취소·환불 기준은 <Link href="/guide/refund/">취소·환불 규정</Link>에서 확인하세요.
           </p>
         </div>
       </section>

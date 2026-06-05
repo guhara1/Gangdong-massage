@@ -6,8 +6,9 @@ import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
+import PricingCards from "@/components/PricingCards";
 import { guides, getGuide } from "@/lib/guides";
-import { trustNotice, pricing } from "@/lib/site";
+import { trustNotice } from "@/lib/site";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -55,31 +56,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           </div>
         ))}
 
-        {/* 요금 안내 가이드에는 실제 요금표를 함께 노출 */}
-        {g.slug === "pricing" ? (
-          <div className="table-wrap" style={{ marginTop: 8 }}>
-            <table className="price-table">
-              <thead>
-                <tr>
-                  <th>구분</th>
-                  <th>시간</th>
-                  <th>요금</th>
-                  <th>비고</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricing.map((row) => (
-                  <tr key={row.name}>
-                    <td>{row.name}</td>
-                    <td>{row.time}</td>
-                    <td>{row.price}</td>
-                    <td>{row.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : null}
+        {/* 요금 안내 가이드에는 코스별 요금 카드를 함께 노출 */}
+        {g.slug === "pricing" ? <PricingCards /> : null}
 
         <div className="notice" style={{ margin: "24px 0" }}>
           {trustNotice}
