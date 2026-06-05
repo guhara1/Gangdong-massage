@@ -2,8 +2,8 @@
 export const site = {
   name: "강동 출장마사지",
   shortName: "강동 케어",
-  // 배포 도메인으로 교체하세요. (sitemap/robots/canonical 기준)
-  url: "https://gangdong-massage.example.com",
+  // 배포 도메인 (Cloudflare Pages). canonical/sitemap/robots/OG 기준.
+  url: "https://gangdong-massage.pages.dev",
   description:
     "강동구 전 지역 방문 웰니스 케어. 예약 전 지역, 요금, 준비사항, 안전 이용 기준을 먼저 확인하세요.",
   // 연락처는 실제 값으로 교체하세요.
@@ -14,6 +14,8 @@ export const site = {
   hours: "10:00 ~ 익일 05:00 (연중무휴)",
   // 선호 썸네일(OG/Discover). 1200x630 권장. public/og-image.png 로 교체하세요.
   ogImage: "/og-image.png",
+  // IndexNow 키(공개값). public/<key>.txt 와 동일해야 함. Bing·Naver·Yandex 등 통보용.
+  indexNowKey: "8f1343ef268f2ebedc5473aa245963a5",
   // 사업자 정보(예시) — 실제 정보로 교체 필요.
   business: {
     legalName: "강동 케어 (사업자명 기재)",

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: { absolute: "강동 출장마사지 예약 | 한국인 관리사 빠른 방문·정찰제 요금" },
   description:
     "강동구 전 지역 출장마사지. 한국인 관리사가 빠르게 방문하고, 정찰제 요금으로 예고 없는 추가요금이 없습니다. 야간 예약 가능 — 지역·요금·준비사항·안전 기준을 확인하세요.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } },
   keywords: ["강동 출장마사지", "강동구 출장마사지", "강동 마사지 예약", "강동 방문 마사지"],
 };
 
