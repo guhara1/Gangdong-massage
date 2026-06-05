@@ -1,0 +1,26 @@
+name: IndexNow
+
+# main에 콘텐츠가 푸시되면(=Cloudflare Pages 재배포), 배포 완료를 기다린 뒤
+# sitemap의 URL을 IndexNow(Bing·Naver·Yandex 등)에 즉시 통보합니다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "lib/**"
+      - "public/**"
+      - "next.config.mjs"
+  workflow_dispatch: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Cloudflare Pages 배포 대기
+        run: sleep 120
+      - name: IndexNow 제출
+        run: node scripts/indexnow.mjs

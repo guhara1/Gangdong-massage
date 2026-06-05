@@ -14,7 +14,13 @@ export const metadata: Metadata = {
     template: `%s｜${site.name}`,
   },
   description: site.description,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
+  },
+  verification: {
+    other: { "naver-site-verification": "b21f0111659e669b5d8581e26eb4b34d4ff3263f" },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
