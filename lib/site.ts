@@ -7,8 +7,8 @@ export const site = {
   description:
     "강동구 전 지역 방문 웰니스 케어. 예약 전 지역, 요금, 준비사항, 안전 이용 기준을 먼저 확인하세요.",
   // 연락처는 실제 값으로 교체하세요.
-  phone: "0000-0000",
-  phoneHref: "tel:00000000",
+  phone: "0508-202-4719",
+  phoneHref: "tel:0508-202-4719",
   kakaoUrl: "#",
   reserveUrl: "#reserve",
   hours: "10:00 ~ 익일 05:00 (연중무휴)",
