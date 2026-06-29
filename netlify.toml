@@ -1,0 +1,11 @@
+# Netlify 배포 설정
+# 이 프로젝트는 Next.js 정적 내보내기(next.config.mjs의 output: "export")라서
+# 빌드 결과물이 .next 가 아니라 out/ 폴더에 생성됩니다.
+# 게시 폴더를 명시하지 않으면 배포가 실패해 사이트에 접속할 수 없습니다.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
