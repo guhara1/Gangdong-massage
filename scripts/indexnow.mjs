@@ -7,7 +7,7 @@
  *
  * 사용: node scripts/indexnow.mjs   (배포 완료 후 실행)
  */
-const HOST = "gangdong-massage.pages.dev";
+const HOST = "gangdong-massage.netlify.app";
 const KEY = "8f1343ef268f2ebedc5473aa245963a5"; // public/<KEY>.txt 와 동일
 const ORIGIN = `https://${HOST}`;
 
