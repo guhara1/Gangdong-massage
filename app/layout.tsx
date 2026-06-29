@@ -19,7 +19,12 @@ export const metadata: Metadata = {
     types: { "application/rss+xml": "/rss.xml" },
   },
   verification: {
-    other: { "naver-site-verification": "b21f0111659e669b5d8581e26eb4b34d4ff3263f" },
+    other: {
+      "naver-site-verification": [
+        "bb061d40a2baac121d720391433a69957522e1e9",
+        "b21f0111659e669b5d8581e26eb4b34d4ff3263f",
+      ],
+    },
   },
   openGraph: {
     type: "website",

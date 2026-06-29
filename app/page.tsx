@@ -5,10 +5,12 @@ import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
 import AreaSelect from "@/components/AreaSelect";
 import PricingCards from "@/components/PricingCards";
+import RelatedLinks from "@/components/RelatedLinks";
 import { site, trustNotice } from "@/lib/site";
 import { areas } from "@/lib/areas";
 import { services } from "@/lib/services";
 import { homeFaq } from "@/lib/faq";
+import { homeTopicLinks } from "@/lib/internalLinks";
 import { editorialMeta } from "@/lib/authors";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
@@ -53,11 +55,12 @@ export default function HomePage() {
     <div className="home">
       <JsonLd
         data={[
-          localBusinessSchema(),
+          localBusinessSchema({ withReviews: true }),
           serviceSchema({
             name: "강동 출장마사지",
             description:
               "강동구 전 지역 방문 웰니스 케어. 아로마·스포츠·림프·커플가족·야간 케어를 안내합니다.",
+            withReviews: true,
           }),
           breadcrumbSchema([{ name: "홈", path: "/" }]),
           faqSchema(homeFaq),
@@ -267,6 +270,20 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* 인기 검색 주제 — 롱테일 내부링크 */}
+      <section className="ed">
+        <div className="wrap">
+          <RelatedLinks
+            eyebrow="인기 주제"
+            heading="강동 출장마사지 인기 검색 주제"
+            kicker="지역·서비스·이용 안내를 주제별로 바로 확인하세요. 찾는 주제를 누르면 해당 안내로 이동합니다."
+            links={homeTopicLinks}
+          />
         </div>
       </section>
 

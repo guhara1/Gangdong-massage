@@ -6,8 +6,10 @@ import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
+import RelatedLinks from "@/components/RelatedLinks";
 import { areas, getArea, areaAdjacency } from "@/lib/areas";
 import { services } from "@/lib/services";
+import { areaTopicLinks } from "@/lib/internalLinks";
 import { site, pricing } from "@/lib/site";
 import { localBusinessSchema, serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
@@ -48,11 +50,12 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
     <div className="container">
       <JsonLd
         data={[
-          localBusinessSchema({ areaServed: `서울특별시 강동구 ${area.name}` }),
+          localBusinessSchema({ areaServed: `서울특별시 강동구 ${area.name}`, withReviews: true }),
           serviceSchema({
             name: `${area.name} 출장마사지`,
             description: area.intro,
             areaServed: `서울특별시 강동구 ${area.name}`,
+            withReviews: true,
           }),
           breadcrumbSchema(crumbs),
           faqSchema(area.faq),
@@ -155,6 +158,13 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
 
         {/* 지역 고유 FAQ */}
         <Faq items={area.faq} heading={`${area.name} 자주 묻는 질문`} />
+
+        {/* 롱테일 주제 내부링크 (지역 × 서비스·가이드) */}
+        <RelatedLinks
+          heading={`${area.name}에서 자주 찾는 주제`}
+          kicker={`${area.name} 방문 케어와 관련해 많이 찾는 주제입니다. 원하는 안내를 바로 확인하세요.`}
+          links={areaTopicLinks(area)}
+        />
 
         {/* 주변 지역 내부링크 (인접 + 허브) */}
         <h2>주변 지역·전체 안내</h2>

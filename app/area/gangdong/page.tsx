@@ -5,8 +5,10 @@ import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
+import RelatedLinks from "@/components/RelatedLinks";
 import { areas } from "@/lib/areas";
 import { generalFaq } from "@/lib/faq";
+import { hubTopicLinks } from "@/lib/internalLinks";
 import { trustNotice } from "@/lib/site";
 import { localBusinessSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
@@ -26,7 +28,7 @@ export default function GangdongPage() {
     <div className="container">
       <JsonLd
         data={[
-          localBusinessSchema(),
+          localBusinessSchema({ withReviews: true }),
           breadcrumbSchema(crumbs),
           faqSchema(generalFaq),
         ]}
@@ -62,6 +64,13 @@ export default function GangdongPage() {
         <div className="notice" style={{ margin: "24px 0" }}>
           {trustNotice}
         </div>
+
+        {/* 롱테일 주제 내부링크 (지역별 대표 주제) */}
+        <RelatedLinks
+          heading="지역별 인기 출장마사지 주제"
+          kicker="강동구 9개 지역의 대표 방문 주제입니다. 내 지역을 선택해 방문 가능 범위와 예약 팁을 확인하세요."
+          links={hubTopicLinks()}
+        />
 
         <Faq items={generalFaq} />
         <EditorialMeta />

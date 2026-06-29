@@ -6,7 +6,9 @@ import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 import Faq from "@/components/Faq";
 import EditorialMeta from "@/components/EditorialMeta";
+import RelatedLinks from "@/components/RelatedLinks";
 import { services, getService } from "@/lib/services";
+import { serviceAreaLinks } from "@/lib/internalLinks";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -38,7 +40,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     <div className="container">
       <JsonLd
         data={[
-          serviceSchema({ name: `강동 ${s.name}`, description: s.body.overview[0] }),
+          serviceSchema({ name: `강동 ${s.name}`, description: s.body.overview[0], withReviews: true }),
           breadcrumbSchema(crumbs),
           faqSchema(s.faq),
         ]}
@@ -93,6 +95,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </ul>
 
         <Faq items={s.faq} heading={`${s.name} 자주 묻는 질문`} />
+
+        {/* 롱테일 주제 내부링크 (서비스 × 지역) */}
+        <RelatedLinks
+          heading={`지역별 ${s.name} 방문 예약`}
+          kicker={`강동구 지역별로 ${s.name}를 방문 예약할 수 있습니다. 내 지역 안내를 확인하세요.`}
+          links={serviceAreaLinks(s.name)}
+        />
 
         <h2>다른 서비스 보기</h2>
         <div className="area-chips">

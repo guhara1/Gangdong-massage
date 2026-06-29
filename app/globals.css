@@ -553,6 +553,54 @@ main {
   margin: 0;
 }
 
+/* ---------- Long-tail topic links ---------- */
+.topic-block {
+  margin-top: 30px;
+}
+.topic-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.topic-grid li {
+  margin: 0;
+}
+.topic-grid a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 15px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.topic-grid a::before {
+  content: "›";
+  color: var(--green);
+  font-weight: 700;
+  flex: none;
+}
+.topic-grid a:hover {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Area selector ---------- */
 .area-chips {
   display: flex;
