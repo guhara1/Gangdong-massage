@@ -2,8 +2,8 @@
 export const site = {
   name: "강동 출장마사지",
   shortName: "강동 케어",
-  // 배포 도메인 (Cloudflare Pages). canonical/sitemap/robots/OG 기준.
-  url: "https://gangdong-massage.pages.dev",
+  // 배포 도메인 (Netlify). canonical/sitemap/robots/OG 기준.
+  url: "https://gangdong-massage.netlify.app",
   description:
     "강동구 전 지역 방문 웰니스 케어. 예약 전 지역, 요금, 준비사항, 안전 이용 기준을 먼저 확인하세요.",
   // 연락처는 실제 값으로 교체하세요.
